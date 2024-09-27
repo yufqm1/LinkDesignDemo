@@ -107,6 +107,11 @@ bool LinkDesignManager::rebuildLinks(int sId, int dId)
         }
     }
 
+    // 按照id的顺便升序
+    std::sort(m_LinkItems.begin(),m_LinkItems.end(),
+              [](const QSharedPointer<BaseLinkItem>& front,const QSharedPointer<BaseLinkItem>& back){
+        return front->getId() < back->getId();
+    });
     return true;
 }
 
@@ -135,10 +140,10 @@ void LinkDesignManager::pickUpOne(int id)
     for(auto item : m_LinkItems) {
         if (item->getId() == id) {
             if(!item->isPickup()) {
-                item->setPen(QPen(Qt::green));
+                item->setPen(QPen(Qt::green,2));
                 item->setPickup(true);
             }else{
-                item->setPen(QPen(Qt::black));
+                item->setPen(QPen(Qt::black,1));
                 item->setPickup(false);
             }
         }else {

@@ -9,7 +9,7 @@ BaseLinkItem::BaseLinkItem(QGraphicsRectItem *parent)
 {
     setRect(QRect(0,0,60,100));
     // setPen(Qt::NoPen);
-    setFlags(QGraphicsItem::ItemIsSelectable | QGraphicsItem::ItemIsMovable);
+    setFlags(QGraphicsItem::ItemIsMovable);
 }
 
 BaseLinkItem::~BaseLinkItem()
@@ -52,6 +52,11 @@ bool BaseLinkItem::isPickup()
 void BaseLinkItem::setPickup(bool pickup)
 {
     m_isPickup = pickup;
+    if(pickup) {
+        setPen(QPen(Qt::green,2));
+    } else {
+        setPen(QPen(Qt::black,1));
+    }
 }
 
 void BaseLinkItem::mousePressEvent(QGraphicsSceneMouseEvent *event)
@@ -65,14 +70,6 @@ void BaseLinkItem::mousePressEvent(QGraphicsSceneMouseEvent *event)
     LinkDesignManager::getInstance()->pickUpOne(getId());
 
     m_cursorPos = QCursor::pos();
-
-    // if(!m_isPickup) {
-    //     setPen(QPen(Qt::darkGreen));
-    //     setPickup(true);
-    // } else {
-    //     setPen(QPen(Qt::black));
-    //     setPickup(false);
-    // }
 
     QGraphicsRectItem::mousePressEvent(event);
 }

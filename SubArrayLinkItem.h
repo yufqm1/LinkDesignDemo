@@ -3,6 +3,7 @@
 
 #include <QObject>
 #include "BaseLinkItem.h"
+#include "QTimer"
 class SubArrayLinkItem : public QObject,public BaseLinkItem
 {
     Q_OBJECT
@@ -14,7 +15,6 @@ public:
 signals:
     void doubleClicked();
 
-
 protected:
     void mousePressEvent(QGraphicsSceneMouseEvent *event) override;
     void mouseMoveEvent(QGraphicsSceneMouseEvent *event) override;
@@ -22,6 +22,12 @@ protected:
 private:
     QGraphicsPixmapItem* m_pixmap;
     QGraphicsTextItem* m_info;
+    QTimer timer;
+    qint64 lastClickTime = 0;
+
+private slots:
+    void onSingleClickTimeout();
+
 };
 
 #endif // SUBARRAYLINKITEM_H
