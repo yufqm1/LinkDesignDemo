@@ -1,7 +1,7 @@
 #include <QWheelEvent>
 #include <QKeyEvent>
 #include "Antenna2DView.h"
-#include "LinkDesignManager.h"
+
 #define VIEW_CENTER viewport()->rect().center()
 #define VIEW_WIDTH  viewport()->rect().width()
 #define VIEW_HEIGHT viewport()->rect().height()
@@ -115,8 +115,6 @@ void Antenna2DView::mousePressEvent(QMouseEvent *event)
         if (scene()->itemAt(point, transform()) == NULL)  {
             m_bMouseTranslate = true;
             m_lastMousePos = event->pos();
-            // 全部不被选中
-            LinkDesignManager::getInstance()->dePickUpAll();
         }
     }
 

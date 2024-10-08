@@ -10,18 +10,26 @@ CONFIG += c++17
 
 SOURCES += \
     Antenna2DView.cpp \
-    BaseLinkItem.cpp \
     LinkDesignManager.cpp \
-    SubArrayLinkItem.cpp \
+    linkItem/AmplifierLinkItem.cpp \
+    linkItem/AttenuatorLinkItem.cpp \
+    linkItem/MixerLinkItem.cpp \
+    linkItem/PhaseShifterLinkItem.cpp \
+    linkItem/SubArrayLinkItem.cpp \
+    linkItem/WaveFilterLinkItem.cpp \
     main.cpp \
     mainwindow.cpp
 
 HEADERS += \
     Antenna2DView.h \
-    BaseLinkItem.h \
     LinkDesignManager.h \
-    SubArrayLinkItem.h \
     graphics.h \
+    linkItem/AmplifierLinkItem.h \
+    linkItem/AttenuatorLinkItem.h \
+    linkItem/MixerLinkItem.h \
+    linkItem/PhaseShifterLinkItem.h \
+    linkItem/SubArrayLinkItem.h \
+    linkItem/WaveFilterLinkItem.h \
     linkdesign_common.h \
     mainwindow.h
 

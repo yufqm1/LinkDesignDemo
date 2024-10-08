@@ -1,5 +1,10 @@
 #include "LinkDesignManager.h"
 #include "SubArrayLinkItem.h"
+#include "PhaseShifterLinkItem.h"
+#include "AttenuatorLinkItem.h"
+#include "AmplifierLinkItem.h"
+#include "WaveFilterLinkItem.h"
+#include "MixerLinkItem.h"
 #include <QGraphicsScene>
 
 std::once_flag LinkDesignManager::m_flag;
@@ -16,12 +21,53 @@ void LinkDesignManager::createLinkItem(ItemType type,QGraphicsScene* scene)
 {
     switch(type){
     case ItemType::SubArray:
+    {
         auto subArray = new SubArrayLinkItem(count++);
         subArray->setPosition(QPointF(60 *count ,100));
         scene->addItem(subArray);
         m_LinkItems.push_back(QSharedPointer<BaseLinkItem>(subArray));
-
         break;
+    }
+    case ItemType::PhaseShifter:
+    {
+        auto phaseShifter = new PhaseShifterLinkItem(count++);
+        phaseShifter->setPosition(QPointF(60 *count ,100));
+        scene->addItem(phaseShifter);
+        m_LinkItems.push_back(QSharedPointer<BaseLinkItem>(phaseShifter));
+        break;
+    }
+    case ItemType::Attenuator:
+    {
+        auto attenuator = new AttenuatorLinkItem(count++);
+        attenuator->setPosition(QPointF(60 *count ,100));
+        scene->addItem(attenuator);
+        m_LinkItems.push_back(QSharedPointer<BaseLinkItem>(attenuator));
+        break;
+    }
+    case ItemType::Amplifier:
+    {
+        auto amplifier = new AmplifierLinkItem(count++);
+        amplifier->setPosition(QPointF(60 *count ,100));
+        scene->addItem(amplifier);
+        m_LinkItems.push_back(QSharedPointer<BaseLinkItem>(amplifier));
+        break;
+    }
+    case ItemType::WaveFilter:
+    {
+        auto waveFilter = new WaveFilterLinkItem(count++);
+        waveFilter->setPosition(QPointF(60 *count ,100));
+        scene->addItem(waveFilter);
+        m_LinkItems.push_back(QSharedPointer<BaseLinkItem>(waveFilter));
+        break;
+    }
+    case ItemType::Mixer:
+    {
+        auto mixer = new MixerLinkItem(count++);
+        mixer->setPosition(QPointF(60 *count ,100));
+        scene->addItem(mixer);
+        m_LinkItems.push_back(QSharedPointer<BaseLinkItem>(mixer));
+        break;
+    }
     defult:
         return;
     }
@@ -110,8 +156,8 @@ bool LinkDesignManager::rebuildLinks(int sId, int dId)
     // 按照id的顺便升序
     std::sort(m_LinkItems.begin(),m_LinkItems.end(),
               [](const QSharedPointer<BaseLinkItem>& front,const QSharedPointer<BaseLinkItem>& back){
-        return front->getId() < back->getId();
-    });
+                  return front->getId() < back->getId();
+              });
     return true;
 }
 
@@ -140,10 +186,10 @@ void LinkDesignManager::pickUpOne(int id)
     for(auto item : m_LinkItems) {
         if (item->getId() == id) {
             if(!item->isPickup()) {
-                item->setPen(QPen(Qt::green,2));
+                item->setPen(QPen(Qt::green));
                 item->setPickup(true);
             }else{
-                item->setPen(QPen(Qt::black,1));
+                item->setPen(QPen(Qt::black));
                 item->setPickup(false);
             }
         }else {

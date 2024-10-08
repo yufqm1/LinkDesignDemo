@@ -1,17 +1,14 @@
-#ifndef SUBARRAYLINKITEM_H
-#define SUBARRAYLINKITEM_H
+#ifndef AMPLIFIERLINKITEM_H
+#define AMPLIFIERLINKITEM_H
 
 #include <QObject>
 #include "BaseLinkItem.h"
-#include "QTimer"
-class SubArrayLinkItem : public QObject,public BaseLinkItem
+class AmplifierLinkItem : public QObject,public BaseLinkItem
 {
     Q_OBJECT
 public:
-    SubArrayLinkItem(int id);
-    virtual ~SubArrayLinkItem();
-
-
+    AmplifierLinkItem(int id);
+    virtual ~AmplifierLinkItem();
 signals:
     void doubleClicked();
 
@@ -22,12 +19,6 @@ protected:
 private:
     QGraphicsPixmapItem* m_pixmap;
     QGraphicsTextItem* m_info;
-    QTimer timer;
-    qint64 lastClickTime = 0;
-
-private slots:
-    void onSingleClickTimeout();
-
 };
 
-#endif // SUBARRAYLINKITEM_H
+#endif // AMPLIFIERLINKITEM_H
