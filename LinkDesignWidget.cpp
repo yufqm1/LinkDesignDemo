@@ -11,15 +11,7 @@ LinkDesignWidget::LinkDesignWidget(QWidget *parent)
     , ui(new Ui::LinkDesignWidget)
 {
     ui->setupUi(this);
-
-    //m_Antena2DView = new Antenna2DView(ui->designWidget);
     m_scence = new QGraphicsScene(this);
-    //m_Antena2DView->setScene(m_scence);
-
-    // QVBoxLayout* layout = new QVBoxLayout;
-    // layout->addWidget(m_Antena2DView);// view 需要有个布局
-    // ui->designWidget->setLayout(layout);
-
     ui->designWidget->setScene(m_scence);
 
     ui->splitter->setStretchFactor(0,1);
