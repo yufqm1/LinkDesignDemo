@@ -18,6 +18,7 @@
 #include <QtWidgets/QSplitter>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
+#include <antenna2dview.h>
 
 QT_BEGIN_NAMESPACE
 
@@ -31,7 +32,7 @@ public:
     QSpacerItem *horizontalSpacer;
     QSplitter *splitter;
     QListView *componentView;
-    QWidget *designWidget;
+    Antenna2DView *designWidget;
 
     void setupUi(QWidget *LinkDesignWidget)
     {
@@ -61,11 +62,11 @@ public:
 
         splitter = new QSplitter(LinkDesignWidget);
         splitter->setObjectName("splitter");
-        splitter->setOrientation(Qt::Horizontal);
+        splitter->setOrientation(Qt::Orientation::Horizontal);
         componentView = new QListView(splitter);
         componentView->setObjectName("componentView");
         splitter->addWidget(componentView);
-        designWidget = new QWidget(splitter);
+        designWidget = new Antenna2DView(splitter);
         designWidget->setObjectName("designWidget");
         splitter->addWidget(designWidget);
 
