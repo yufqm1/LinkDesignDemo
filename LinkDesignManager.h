@@ -2,7 +2,7 @@
 #define LINKDESIGNMANAGER_H
 #include <functional>
 #include "linkdesign_common.h"
-#include "BaseLinkItem.h"
+#include "linkItem\BaseLinkItem.h"
 class QGraphicsScene;
 class LinkDesignManager
 {

@@ -1,10 +1,10 @@
 #include "LinkDesignManager.h"
-#include "SubArrayLinkItem.h"
-#include "PhaseShifterLinkItem.h"
-#include "AttenuatorLinkItem.h"
-#include "AmplifierLinkItem.h"
-#include "WaveFilterLinkItem.h"
-#include "MixerLinkItem.h"
+#include "linkItem\SubArrayLinkItem.h"
+#include "linkItem\PhaseShifterLinkItem.h"
+#include "linkItem\AttenuatorLinkItem.h"
+#include "linkItem\AmplifierLinkItem.h"
+#include "linkItem\WaveFilterLinkItem.h"
+#include "linkItem\MixerLinkItem.h"
 #include <QGraphicsScene>
 
 std::once_flag LinkDesignManager::m_flag;

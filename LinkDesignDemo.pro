@@ -17,6 +17,7 @@ SOURCES += \
     linkItem/PhaseShifterLinkItem.cpp \
     linkItem/SubArrayLinkItem.cpp \
     linkItem/WaveFilterLinkItem.cpp \
+    linkItem/BaseLinkItem.cpp \
     main.cpp \
     mainwindow.cpp
 
@@ -30,6 +31,7 @@ HEADERS += \
     linkItem/PhaseShifterLinkItem.h \
     linkItem/SubArrayLinkItem.h \
     linkItem/WaveFilterLinkItem.h \
+    linkItem/BaseLinkItem.h \
     linkdesign_common.h \
     mainwindow.h
 
