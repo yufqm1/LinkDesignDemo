@@ -13,4 +13,12 @@ enum class ItemType {
     Mixer,          // 混频器
 };
 
+enum class DataType
+{
+    Name = Qt::UserRole,
+    ComType,
+
+
+};
+
 #endif // LINKDESIGN_COMMON_H

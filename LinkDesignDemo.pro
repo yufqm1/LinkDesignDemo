@@ -11,6 +11,7 @@ CONFIG += c++17
 SOURCES += \
     Antenna2DView.cpp \
     LinkDesignManager.cpp \
+    LinkDesignWidget.cpp \
     linkItem/AmplifierLinkItem.cpp \
     linkItem/AttenuatorLinkItem.cpp \
     linkItem/MixerLinkItem.cpp \
@@ -24,6 +25,7 @@ SOURCES += \
 HEADERS += \
     Antenna2DView.h \
     LinkDesignManager.h \
+    LinkDesignWidget.h \
     graphics.h \
     linkItem/AmplifierLinkItem.h \
     linkItem/AttenuatorLinkItem.h \
@@ -36,6 +38,7 @@ HEADERS += \
     mainwindow.h
 
 FORMS += \
+    LinkDesignWidget.ui \
     mainwindow.ui
 
 # Default rules for deployment.
